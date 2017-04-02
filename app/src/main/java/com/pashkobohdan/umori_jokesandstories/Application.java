@@ -1,10 +1,12 @@
 package com.pashkobohdan.umori_jokesandstories;
 
 import android.content.Context;
+import android.content.IntentFilter;
 import android.widget.Toast;
 
 import com.pashkobohdan.umori_jokesandstories.data.ormLite.HelperFactory;
 import com.pashkobohdan.umori_jokesandstories.data.retrofitApi.UmoriliApi;
+import com.pashkobohdan.umori_jokesandstories.receivers.NetworkStateReceiver;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -13,6 +15,8 @@ import java.net.URL;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static android.provider.ContactsContract.Intents.Insert.ACTION;
+
 /**
  * Created by bohdan on 25.03.17.
  */
@@ -20,6 +24,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Application extends android.app.Application {
     private static UmoriliApi umoriliApi;
     private Retrofit retrofit;
+
+    private NetworkStateReceiver networkStateReceiver;
 
     @Override
     public void onCreate() {
@@ -33,11 +39,17 @@ public class Application extends android.app.Application {
 
 
         HelperFactory.setHelper(getApplicationContext());
+
+        networkStateReceiver = new NetworkStateReceiver();
+        registerReceiver(networkStateReceiver, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
     }
 
     @Override
     public void onTerminate() {
         HelperFactory.releaseHelper();
+
+        unregisterReceiver(networkStateReceiver);
+
         super.onTerminate();
     }
 

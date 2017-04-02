@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Уморы и истории</string>
+    <string name="activity_sources">Источники</string>
+    <string name="copied">Скопировано</string>
+    <string name="copy">Копировать</string>
+    <string name="data_error">Ошибка данных</string>
+    <string name="error">Ошибка</string>
+    <string name="internet_error">Ошибка соединения с Internet</string>
+    <string name="network_connected">Сеть подключена. Можно обновить посты</string>
+    <string name="network_error">Сеть недоступна</string>
+    <string name="open_in_browser">Открыть в браузере</string>
+    <string name="random">Перемешано</string>
+    <string name="share">Поделиться</string>
+    <string name="share_via">Поделиться по...</string>
+    <string name="in_cache">"В кэше : "</string>
+</resources>

@@ -5,7 +5,7 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.pashkobohdan.umori_jokesandstories.data.model.SourceModel;
 
 import java.sql.SQLException;
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by bohdan on 01.04.17.
@@ -17,7 +17,7 @@ public class SourceDao extends BaseDaoImpl<SourceModel, Integer> {
         super(connectionSource, dataClass);
     }
 
-    public List<SourceModel> getAllSources() throws SQLException {
+    public Collection<SourceModel> getAllSources() throws SQLException {
         return this.queryForAll();
     }
 

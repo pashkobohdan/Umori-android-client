@@ -1,5 +1,6 @@
 package com.pashkobohdan.umori_jokesandstories.adapters;
 
+import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -57,6 +58,17 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                 return false;
             }
         });
+
+        if (post.isInDB()){
+            holder.postStatus.setText("Saved");
+            holder.postStatus.setTextColor(Color.BLACK);
+        }else{
+            holder.postStatus.setText("New");
+            holder.postStatus.setTextColor(Color.RED);
+        }
+
+        holder.postSource.setText(post.getSource().getName());
+
     }
 
     @Override
@@ -74,10 +86,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
     class ViewHolder extends RecyclerView.ViewHolder{
         TextView post;
+        TextView postSource;
+        TextView postStatus;
 
         public ViewHolder(View itemView) {
             super(itemView);
             post = (TextView) itemView.findViewById(R.id.post_text);
+            postSource = (TextView) itemView.findViewById(R.id.post_source);
+            postStatus = (TextView) itemView.findViewById(R.id.post_status);
         }
 
 

@@ -2,17 +2,22 @@ package com.pashkobohdan.umori_jokesandstories.data.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "posts")
 public class PostModel {
 
+
+
     @DatabaseField(generatedId = true)
     private int Id;
 
     @DatabaseField(foreign = true)
     private SourceModel source;
+
+    private boolean inDB;
 
 
     @DatabaseField()
@@ -116,5 +121,38 @@ public class PostModel {
 
     public void setSource(SourceModel source) {
         this.source = source;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        PostModel postModel = (PostModel) o;
+
+        if (site != null ? !site.equals(postModel.site) : postModel.site != null) return false;
+        if (name != null ? !name.equals(postModel.name) : postModel.name != null) return false;
+        if (desc != null ? !desc.equals(postModel.desc) : postModel.desc != null) return false;
+        if (link != null ? !link.equals(postModel.link) : postModel.link != null) return false;
+        return elementPureHtml != null ? elementPureHtml.equals(postModel.elementPureHtml) : postModel.elementPureHtml == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = site != null ? site.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (desc != null ? desc.hashCode() : 0);
+        result = 31 * result + (link != null ? link.hashCode() : 0);
+        result = 31 * result + (elementPureHtml != null ? elementPureHtml.hashCode() : 0);
+        return result;
+    }
+
+    public boolean isInDB() {
+        return inDB;
+    }
+
+    public void setInDB(boolean inDB) {
+        this.inDB = inDB;
     }
 }

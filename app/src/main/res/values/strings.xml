@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">Umori - Jokes and Stories</string>
     <string name="activity_sources">Sources</string>
+    <string name="network_connected">Network connected. You can refresh posts</string>
+    <string name="network_error">There\'s no network connectivity</string>
+    <string name="random">Random</string>
+    <string name="data_error">Data error</string>
+    <string name="internet_error">Internet connection error</string>
+    <string name="share">Share</string>
+    <string name="open_in_browser">Open in browser</string>
+    <string name="copy">Copy</string>
+    <string name="share_via">Share via</string>
+    <string name="copied">Copied</string>
+    <string name="error">Error</string>
+    <string name="in_cache">"In cache : "</string>
 </resources>

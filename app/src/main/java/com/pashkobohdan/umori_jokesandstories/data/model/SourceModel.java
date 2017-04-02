@@ -8,6 +8,8 @@ import com.j256.ormlite.table.DatabaseTable;
 import com.pashkobohdan.umori_jokesandstories.data.ormLite.HelperFactory;
 
 import java.sql.SQLException;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -19,7 +21,6 @@ public class SourceModel {
 
     @DatabaseField(generatedId = true)
     private int Id;
-
 
 
     @DatabaseField()
@@ -60,15 +61,15 @@ public class SourceModel {
 
 
     @ForeignCollectionField(eager = true)
-    private List<PostModel> postList;
+    private Collection<PostModel> postList;
 
-    public void addRole(PostModel value) throws SQLException{
+    public void addPost(PostModel value) throws SQLException{
         value.setSource(this);
-        HelperFactory.getHelper().getPostDAO().create(value);
+        //HelperFactory.getHelper().getPostDAO().create(value);
         postList.add(value);
     }
 
-    public void removeRole(PostModel value) throws SQLException{
+    public void removePost(PostModel value) throws SQLException{
         postList.remove(value);
         HelperFactory.getHelper().getPostDAO().delete(value);
     }
@@ -131,4 +132,42 @@ public class SourceModel {
         this.desc = desc;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        SourceModel that = (SourceModel) o;
+
+        if (site != null ? !site.equals(that.site) : that.site != null) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (url != null ? !url.equals(that.url) : that.url != null) return false;
+        if (parsel != null ? !parsel.equals(that.parsel) : that.parsel != null) return false;
+        if (encoding != null ? !encoding.equals(that.encoding) : that.encoding != null)
+            return false;
+        if (linkpar != null ? !linkpar.equals(that.linkpar) : that.linkpar != null) return false;
+        return desc != null ? desc.equals(that.desc) : that.desc == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = site != null ? site.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (url != null ? url.hashCode() : 0);
+        result = 31 * result + (parsel != null ? parsel.hashCode() : 0);
+        result = 31 * result + (encoding != null ? encoding.hashCode() : 0);
+        result = 31 * result + (linkpar != null ? linkpar.hashCode() : 0);
+        result = 31 * result + (desc != null ? desc.hashCode() : 0);
+        return result;
+    }
+
+    public Collection<PostModel> getPostList() {
+        return postList;
+    }
+
+    public void setPostList(Collection<PostModel> postList) {
+        this.postList = postList;
+    }
 }

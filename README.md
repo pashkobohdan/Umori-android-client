@@ -4,11 +4,11 @@ Best jokes, stories and poems from all russian Internet (runet)
 
 ## Screenshots
 <img alt="Main screen:" align="right" height="300"
-   src="https://raw.githubusercontent.com/pashkobohdan/Umori-android-client/master/screenshots/1.jpg" />
-<img alt="Nothing but reading" align="right" height="300"
    src="https://raw.githubusercontent.com/pashkobohdan/Umori-android-client/master/screenshots/3.png" />
+<img alt="Nothing but reading" align="right" height="300"
+   src="https://raw.githubusercontent.com/pashkobohdan/Umori-android-client/master/screenshots/2.png" />
 <img alt="Customize reading" align="right" height="300"
-   src="https://raw.githubusercontent.com/pashkobohdan/Umori-android-client/master/screenshots/4.png" />
+   src="https://raw.githubusercontent.com/pashkobohdan/Umori-android-client/master/screenshots/1.jpg" />
 
 ## Getting Started
 

@@ -60,10 +60,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         });
 
         if (post.isInDB()){
-            holder.postStatus.setText("Saved");
+            holder.postStatus.setText(R.string.saved);
             holder.postStatus.setTextColor(Color.BLACK);
         }else{
-            holder.postStatus.setText("New");
+            holder.postStatus.setText(R.string.new_post);
             holder.postStatus.setTextColor(Color.RED);
         }
 

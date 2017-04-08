@@ -13,4 +13,6 @@
     <string name="copied">Copied</string>
     <string name="error">Error</string>
     <string name="in_cache">"In cache : "</string>
+    <string name="saved">Saved</string>
+    <string name="new_post">New</string>
 </resources>

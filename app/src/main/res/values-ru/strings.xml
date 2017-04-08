@@ -14,4 +14,6 @@
     <string name="share">Поделиться</string>
     <string name="share_via">Поделиться по...</string>
     <string name="in_cache">"В кэше : "</string>
+    <string name="new_post">Новый</string>
+    <string name="saved">Сохраненный</string>
 </resources>
